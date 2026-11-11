@@ -1,0 +1,104 @@
+# Chapter 12: IPv4 L3VPN over an SRv6 (uSID) core, no MPLS anywhere
+# Deploy:  sudo containerlab deploy -t lab7-srv6.clab.yml
+# Destroy: sudo containerlab destroy -t lab7-srv6.clab.yml --cleanup
+name: lab7-srv6
+
+topology:
+  defaults:
+    sysctls:
+      net.ipv4.ip_forward: 1
+      net.ipv6.conf.all.forwarding: 1
+      net.ipv6.conf.all.disable_ipv6: 0
+      net.vrf.strict_mode: 1
+  nodes:
+    pe1:
+      kind: linux
+      image: quay.io/frrouting/frr:10.7.0
+      binds:
+        - configs/pe1/frr.conf:/etc/frr/frr.conf
+        - configs/daemons:/etc/frr/daemons
+      exec:
+        - "ip link add RED type vrf table 10"
+        - "ip link set RED up"
+        - "ip link set eth3 master RED"
+        - "ip link add sr0 type dummy"
+        - "ip link set sr0 up"
+        - "sysctl -w net.ipv6.conf.all.seg6_enabled=1"
+        - "sysctl -w net.ipv6.conf.eth1.seg6_enabled=1"
+        - "sysctl -w net.ipv6.conf.eth2.seg6_enabled=1"
+    p1:
+      kind: linux
+      image: quay.io/frrouting/frr:10.7.0
+      binds:
+        - configs/p1/frr.conf:/etc/frr/frr.conf
+        - configs/daemons:/etc/frr/daemons
+      exec:
+        - "ip link add sr0 type dummy"
+        - "ip link set sr0 up"
+        - "sysctl -w net.ipv6.conf.all.seg6_enabled=1"
+        - "sysctl -w net.ipv6.conf.eth1.seg6_enabled=1"
+        - "sysctl -w net.ipv6.conf.eth2.seg6_enabled=1"
+        - "sysctl -w net.ipv6.conf.eth3.seg6_enabled=1"
+    p2:
+      kind: linux
+      image: quay.io/frrouting/frr:10.7.0
+      binds:
+        - configs/p2/frr.conf:/etc/frr/frr.conf
+        - configs/daemons:/etc/frr/daemons
+      exec:
+        - "ip link add sr0 type dummy"
+        - "ip link set sr0 up"
+        - "sysctl -w net.ipv6.conf.all.seg6_enabled=1"
+        - "sysctl -w net.ipv6.conf.eth1.seg6_enabled=1"
+        - "sysctl -w net.ipv6.conf.eth2.seg6_enabled=1"
+    p3:
+      kind: linux
+      image: quay.io/frrouting/frr:10.7.0
+      binds:
+        - configs/p3/frr.conf:/etc/frr/frr.conf
+        - configs/daemons:/etc/frr/daemons
+      exec:
+        - "ip link add sr0 type dummy"
+        - "ip link set sr0 up"
+        - "sysctl -w net.ipv6.conf.all.seg6_enabled=1"
+        - "sysctl -w net.ipv6.conf.eth1.seg6_enabled=1"
+        - "sysctl -w net.ipv6.conf.eth2.seg6_enabled=1"
+        - "sysctl -w net.ipv6.conf.eth3.seg6_enabled=1"
+    pe2:
+      kind: linux
+      image: quay.io/frrouting/frr:10.7.0
+      binds:
+        - configs/pe2/frr.conf:/etc/frr/frr.conf
+        - configs/daemons:/etc/frr/daemons
+      exec:
+        - "ip link add RED type vrf table 10"
+        - "ip link set RED up"
+        - "ip link set eth3 master RED"
+        - "ip link add sr0 type dummy"
+        - "ip link set sr0 up"
+        - "sysctl -w net.ipv6.conf.all.seg6_enabled=1"
+        - "sysctl -w net.ipv6.conf.eth1.seg6_enabled=1"
+        - "sysctl -w net.ipv6.conf.eth2.seg6_enabled=1"
+    ce1:
+      kind: linux
+      image: alpine:3.20
+      exec:
+        - "ip addr add 172.16.1.2/24 dev eth1"
+        - "ip addr add 192.168.1.1/32 dev lo"
+        - "ip route replace default via 172.16.1.1"
+    ce2:
+      kind: linux
+      image: alpine:3.20
+      exec:
+        - "ip addr add 172.16.2.2/24 dev eth1"
+        - "ip addr add 192.168.2.1/32 dev lo"
+        - "ip route replace default via 172.16.2.1"
+  links:
+    - endpoints: ["pe1:eth1", "p1:eth1"]
+    - endpoints: ["p1:eth2", "p2:eth1"]
+    - endpoints: ["p2:eth2", "pe2:eth1"]
+    - endpoints: ["pe1:eth2", "p3:eth1"]
+    - endpoints: ["p3:eth2", "pe2:eth2"]
+    - endpoints: ["p1:eth3", "p3:eth3"]
+    - endpoints: ["pe1:eth3", "ce1:eth1"]
+    - endpoints: ["pe2:eth3", "ce2:eth1"]

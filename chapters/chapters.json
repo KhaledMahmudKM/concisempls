@@ -1,0 +1,31 @@
+[
+  {
+    "separator": "Part I · Foundations"
+  },
+  "01-why-mpls.md",
+  "02-labels.md",
+  "03-lab.md",
+  {
+    "separator": "Part II · Label Distribution"
+  },
+  "04-ldp.md",
+  "05-bgp-free-core.md",
+  {
+    "separator": "Part III · MPLS VPNs"
+  },
+  "06-l3vpn.md",
+  "07-l3vpn-design.md",
+  "08-l2vpn.md",
+  {
+    "separator": "Part IV · Segment Routing"
+  },
+  "09-sr-mpls.md",
+  "10-fast-reroute.md",
+  "11-traffic-engineering.md",
+  "12-srv6.md",
+  {
+    "separator": "Appendix"
+  },
+  "13-command-reference.md",
+  "glossary.md"
+]

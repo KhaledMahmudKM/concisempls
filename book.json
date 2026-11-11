@@ -1,0 +1,12 @@
+{
+  "title": "Concise Book on MPLS",
+  "author": "Khaled Mahmud",
+  "year": "2026",
+  "copyright": "© 2026 Khaled Mahmud",
+  "version": "1.0",
+  "description": "A concise, diagram-rich guide to MPLS: label switching, LDP, BGP/MPLS L3VPNs, Layer 2 VPNs, Segment Routing, fast reroute, traffic engineering and SRv6, with FRR labs in containerlab.",
+  "homeUrl": "https://khaledmahmudkm.github.io/stacks/",
+  "logo": "logo.svg",
+  "palette": "lagoon",
+  "math": false
+}
