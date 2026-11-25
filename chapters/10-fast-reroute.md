@@ -436,3 +436,63 @@ Stop the ping with Ctrl+C and compare transmitted and received packets; each los
 - **Remote LFA** tunnels to a **PQ node** with targeted LDP; better coverage, still incomplete.
 - **TI-LFA** encodes the **post-convergence path** as a segment list, protecting against any single **link**, **node**, or **SRLG** failure.
 - SR also enables **microloop avoidance**. In FRR, enable TI-LFA with `isis fast-reroute ti-lfa` on each core interface.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#chapter-10-fast-reroute).
+
+**1. What does fast reroute do?**
+
+- A. Speeds up SPF
+- B. Replaces the IGP
+- C. Encrypts the backup path
+- D. Pre-installs backup paths so the PLR can switch within tens of milliseconds
+
+**2. What is the PLR?**
+
+- A. The egress PE
+- B. The point of local repair: the router next to the failure that switches to the backup
+- C. A route reflector
+- D. The PCE
+
+**3. When is neighbour N a loop-free alternate for source S toward destination D?**
+
+- A. When dist(N, D) > dist(N, S) + dist(S, D)
+- B. When N is directly connected to D
+- C. Always
+- D. When dist(N, D) < dist(N, S) + dist(S, D)
+
+**4. What limits plain LFA?**
+
+- A. Its coverage depends on the topology; some failures have no LFA
+- B. It needs SR
+- C. It is too slow
+- D. It works only on LANs
+
+**5. What is a PQ node in remote LFA?**
+
+- A. A node with two loopbacks
+- B. The PLR itself
+- C. A node in both S's P space and E's Q space: a safe tunnel endpoint
+- D. A route reflector
+
+**6. What path does TI-LFA use as the backup?**
+
+- A. Any random path
+- B. The longest path
+- C. The pre-failure path
+- D. The post-convergence path, encoded as a segment list
+
+**7. Against which failures can TI-LFA protect?**
+
+- A. Only link failures
+- B. Any single link, node or SRLG failure
+- C. Only node failures
+- D. Only multiple simultaneous failures
+
+**8. Which FRR command enables TI-LFA on a core interface?**
+
+- A. mpls ldp
+- B. segment-routing on
+- C. isis fast-reroute ti-lfa
+- D. bfd fast

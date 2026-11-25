@@ -30,6 +30,6 @@ The **Appendix** collects the commands used in the labs, and the **Glossary** de
 
 Read Parts I and II in order; everything later builds on them. After that, Part III and Part IV are largely independent.
 
-Each chapter ends with a short summary. Lab sections are marked **Hands on**. A few topics, such as RSVP-TE and VPLS, have no working data plane in Linux, so they are explained with diagrams and marked **No lab**; the nearest lab you can run is suggested instead.
+Each chapter ends with a short summary and a **Check your understanding** quiz of eight multiple-choice questions; the **Answers to Chapter Questions** chapter, after the Glossary, gives every answer with a short explanation. Lab sections are marked **Hands on**. A few topics, such as RSVP-TE and VPLS, have no working data plane in Linux, so they are explained with diagrams and marked **No lab**; the nearest lab you can run is suggested instead.
 
 The lab files are in the [`labs/` folder](https://github.com/khaledmahmudkm/concisempls/tree/main/labs) of this book's repository.

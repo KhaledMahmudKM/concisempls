@@ -301,3 +301,63 @@ EVPN is independent of the data plane. Over MPLS, it uses a transport label and 
 - **EVPN** advertises MAC addresses in **BGP**, enabling **all-active multihoming**, fast convergence, and less flooding.
 - EVPN runs over MPLS or VXLAN; new deployments favour it over VPLS and classic pseudowires.
 - None of these has a Linux data plane over MPLS; practise the EVPN control plane with **EVPN-VXLAN** in FRR instead.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#chapter-8-layer-2-vpns).
+
+**1. What does a pseudowire emulate?**
+
+- A. A routed network
+- B. A point-to-point link carrying the customer's frames
+- C. A VLAN trunk only
+- D. An IP tunnel
+
+**2. What is the main job of the pseudowire control word?**
+
+- A. Encryption
+- B. Carrying the VLAN ID
+- C. Stopping core routers from mistaking the Ethernet payload for an IP packet when load balancing
+- D. Setting the TTL
+
+**3. Which service is built from one pseudowire?**
+
+- A. VPWS (E-Line)
+- B. VPLS (E-LAN)
+- C. L3VPN
+- D. EVPN multihoming
+
+**4. How does VPLS learn MAC addresses?**
+
+- A. In the data plane, by learning from received frames
+- B. From BGP
+- C. From the IGP
+- D. From a controller
+
+**5. Why does VPLS use split horizon?**
+
+- A. To save labels
+- B. To speed up learning
+- C. So a frame received from one pseudowire is not sent out another, preventing loops
+- D. To encrypt frames
+
+**6. How does EVPN learn MAC addresses?**
+
+- A. Only in the data plane
+- B. It advertises them in BGP, in the control plane
+- C. From LDP
+- D. It does not use MAC addresses
+
+**7. What identifies a multihomed customer link in EVPN?**
+
+- A. The RD
+- B. The PW label
+- C. The VLAN ID
+- D. The Ethernet segment identifier (ESI)
+
+**8. How can you practise the EVPN control plane in this book's lab environment?**
+
+- A. With VPLS over MPLS
+- B. With EVPN-VXLAN in FRR, since Linux has no MPLS data plane for these services
+- C. With RSVP-TE
+- D. It cannot be practised

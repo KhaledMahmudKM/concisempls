@@ -330,3 +330,63 @@ The data plane is the same in every case: push, swap, pop.
 - **CE**, **PE**, and **P** routers have very different jobs; PEs carry most of the complexity.
 
 The next chapter opens up the label itself and builds an LSP by hand.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#chapter-1-why-mpls).
+
+**1. What does an MPLS router forward on, inside the core?**
+
+- A. A short label chosen at the network edge
+- B. The destination IP address at every hop
+- C. The source MAC address
+- D. The TCP port
+
+**2. Which router type swaps labels in the middle of an LSP?**
+
+- A. LER
+- B. CE
+- C. LSR
+- D. Route reflector
+
+**3. What is true of a Label Switched Path?**
+
+- A. It is bidirectional
+- B. It is one-directional; return traffic needs its own LSP
+- C. It always follows the longest path
+- D. It carries only IPv6
+
+**4. What is a Forwarding Equivalence Class?**
+
+- A. A router vendor class
+- B. A QoS queue
+- C. A VPN customer
+- D. A set of packets forwarded the same way, and so given the same label
+
+**5. Why does MPLS still matter today, now that IP lookups are fast?**
+
+- A. Labels are cheaper than IP addresses
+- B. A label acts as a tunnel, enabling a BGP-free core, VPNs, traffic engineering and fast reroute
+- C. IP routing no longer works in large networks
+- D. Labels encrypt traffic
+
+**6. Which router type connects the customer to the provider and holds most of the complexity?**
+
+- A. P
+- B. CE
+- C. LSR only
+- D. PE
+
+**7. Which router belongs to the customer and does not run MPLS?**
+
+- A. CE
+- B. PE
+- C. P
+- D. ASBR
+
+**8. Which of these is NOT a way that MPLS routers agree on labels?**
+
+- A. LDP
+- B. BGP
+- C. DHCP
+- D. RSVP-TE

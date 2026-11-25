@@ -430,3 +430,63 @@ The `frr.conf` files also work in any other environment: a GNS3 project, a set o
 - Each container needs **`net.mpls.platform_labels`** set, and **`net.mpls.conf.<if>.input=1`** on each core interface. The topology files do this.
 - The **core network** has pe1, pe2, p1, p2 and p3 running **IS-IS level 2**; shortest pe1 to pe2 path is along the top row.
 - Customer sites **RED** and **BLUE** reuse the same addresses on purpose.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#chapter-3-the-lab).
+
+**1. Which tools run the book's labs?**
+
+- A. FRR containers under containerlab
+- B. GNS3 and Cisco IOS
+- C. Mininet and Open vSwitch
+- D. VirtualBox VMs
+
+**2. Where must the mpls_router and mpls_iptunnel modules be loaded?**
+
+- A. In each container
+- B. In FRR's configuration
+- C. On the host, since containers cannot load kernel modules
+- D. On the CE routers only
+
+**3. What forwards the labelled packets in the lab?**
+
+- A. FRR's zebra daemon
+- B. containerlab
+- C. A software switch
+- D. The Linux kernel
+
+**4. What does net.mpls.platform_labels set?**
+
+- A. The number of interfaces
+- B. The highest label number the kernel will accept, the size of its label table
+- C. The TTL of labels
+- D. The SRGB base
+
+**5. Which IGP does the lab's core network run?**
+
+- A. OSPF area 0
+- B. RIP
+- C. IS-IS level 2
+- D. EIGRP
+
+**6. Why do customer sites RED and BLUE reuse the same addresses?**
+
+- A. On purpose, to show that VPNs keep overlapping customer address spaces apart
+- B. It is a configuration error
+- C. To save address space
+- D. Containerlab requires it
+
+**7. Which topology-file sections apply the MPLS sysctls and configuration in each container?**
+
+- A. sysctls, binds and exec
+- B. kinds and images
+- C. mgmt and labels
+- D. groups and defaults
+
+**8. Which lab needs a host kernel of 6.1 or newer?**
+
+- A. The LDP lab in Chapter 4
+- B. The L3VPN lab in Chapter 6
+- C. The SRv6 lab in Chapter 12
+- D. The SR-MPLS lab in Chapter 9

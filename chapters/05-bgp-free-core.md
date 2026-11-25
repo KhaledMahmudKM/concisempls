@@ -401,3 +401,63 @@ pe1 no longer has a label from p1 for `10.0.0.2`, so it sends the customer packe
 - Use **`next-hop-self`** so every BGP next hop is a PE loopback.
 - Any missing label on the path means **unlabelled traffic is dropped**; keep LSPs healthy and synchronised with the IGP.
 - **6PE** carries IPv6 over an IPv4 MPLS core with a second label; **BGP labeled unicast** extends LSPs across IGP domains.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#chapter-5-the-bgp-free-core).
+
+**1. In a BGP-free core, which routers run BGP?**
+
+- A. Only the PEs
+- B. All routers
+- C. Only the P routers
+- D. Only route reflectors in the core
+
+**2. How does a PE send traffic for a BGP route across the core?**
+
+- A. By flooding
+- B. By tunnelling over GRE
+- C. Recursive resolution: the BGP next hop is a PE loopback, whose IGP route carries an LDP label
+- D. By static routes on P routers
+
+**3. Why configure next-hop-self on PEs?**
+
+- A. To speed up BGP
+- B. So every BGP next hop is a PE loopback with an LSP
+- C. To hide routes
+- D. To enable 6PE
+
+**4. What happens to traffic if a label is missing somewhere on the path?**
+
+- A. It is routed by IP instead
+- B. It is sent back to the ingress
+- C. It is duplicated
+- D. It is dropped, since P routers have no route for the destination
+
+**5. What does 6PE do?**
+
+- A. Runs IPv6 natively in the core
+- B. Carries IPv6 over an IPv4 MPLS core, using a second label
+- C. Translates IPv6 to IPv4
+- D. Builds IPv6 VPNs only
+
+**6. What does BGP labeled unicast provide?**
+
+- A. Encryption of BGP
+- B. Faster IGP convergence
+- C. Layer 2 services
+- D. LSPs that extend across separate IGP domains
+
+**7. What must exist for every pair of PEs in a BGP-free core?**
+
+- A. An LSP between their loopbacks
+- B. A direct link
+- C. A shared VRF
+- D. A route reflector
+
+**8. What does a P router know about customer routes in a BGP-free core?**
+
+- A. All of them
+- B. Only the default route
+- C. Nothing: it has no route at all for them
+- D. Only IPv6 routes

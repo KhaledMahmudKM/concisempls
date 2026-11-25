@@ -476,3 +476,63 @@ pe1# show ip route 10.10.3.1/32
 - The label for a prefix SID is **SRGB base + index**; use one **SRGB** network-wide.
 - The IGP (**IS-IS** or **OSPF**) carries SIDs; **no LDP** is needed, and services such as L3VPN work unchanged.
 - SR and LDP coexist during migration through **stitching** and a **mapping server**.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#chapter-9-segment-routing-with-mpls).
+
+**1. How does Segment Routing describe a packet's path?**
+
+- A. As a list of segments carried in the packet
+- B. With per-hop signalling
+- C. With LDP sessions
+- D. With static routes
+
+**2. Which kind of SID is global and follows the shortest path to a node?**
+
+- A. Adjacency SID
+- B. Binding SID
+- C. Prefix (node) SID
+- D. VPN label
+
+**3. What is the label for a prefix SID?**
+
+- A. The index alone
+- B. SRGB base + index
+- C. Always 16000
+- D. Chosen randomly by each router
+
+**4. Why use the same SRGB on every router?**
+
+- A. The standard requires it
+- B. To save memory
+- C. To disable PHP
+- D. So the label for a node is the same everywhere, which makes label stacks readable
+
+**5. Which protocols carry the SIDs in SR-MPLS?**
+
+- A. LDP
+- B. IS-IS or OSPF
+- C. RSVP-TE
+- D. BFD
+
+**6. What does the stack [16013, 16002] mean?**
+
+- A. Go to pe2, then p3
+- B. Use two parallel paths
+- C. Drop at p3
+- D. Go to p3 by the shortest path, then to pe2 by the shortest path
+
+**7. Which is a reason operators move from LDP to SR?**
+
+- A. One protocol fewer, global labels, TE without signalling, and full fast reroute coverage
+- B. SR needs more protocols
+- C. SR removes the IGP
+- D. SR is required for IPv4
+
+**8. How do SR and LDP coexist during a migration?**
+
+- A. They cannot
+- B. By running BGP on P routers
+- C. Through stitching and a mapping server
+- D. By disabling the IGP

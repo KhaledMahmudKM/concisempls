@@ -562,3 +562,63 @@ Typing labels by hand works for three routers and one destination. It does not s
 - **PHP** pops the last label one hop early (implicit null, 3); **explicit null** (0) keeps it to the egress.
 - Every label adds 4 bytes; plan core **MTU** accordingly.
 - In Linux, each interface must have **`net.mpls.conf.<if>.input=1`**, and **`net.mpls.platform_labels`** must be large enough.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#chapter-2-labels-and-forwarding).
+
+**1. How long is the label field in a label stack entry?**
+
+- A. 8 bits
+- B. 16 bits
+- C. 20 bits
+- D. 32 bits
+
+**2. What does the S bit in a label stack entry mark?**
+
+- A. Signalling
+- B. The bottom of the stack
+- C. Security
+- D. A swapped label
+
+**3. Which EtherType identifies an MPLS unicast frame?**
+
+- A. 0x0800
+- B. 0x86DD
+- C. 0x8847
+- D. 0x8100
+
+**4. What does 'labels are locally significant' mean?**
+
+- A. Each router chooses its own labels, which mean something only to that router
+- B. Labels are the same on every router
+- C. Labels expire quickly
+- D. Labels are only used on LANs
+
+**5. Which table maps incoming labels to actions?**
+
+- A. The FIB
+- B. The ARP table
+- C. The LFIB
+- D. The RIB
+
+**6. Which label value does the egress advertise to request penultimate hop popping?**
+
+- A. 0, explicit null
+- B. 1
+- C. 16
+- D. 3, implicit null
+
+**7. Why might an operator use explicit null (0) instead of PHP?**
+
+- A. To save bandwidth
+- B. To keep a label, with its TC bits, all the way to the egress
+- C. To disable MPLS
+- D. To increase the TTL
+
+**8. Which Linux setting must be enabled on each interface that receives labelled packets?**
+
+- A. net.ipv4.ip_forward=0
+- B. net.mpls.ttl_propagate=0
+- C. net.mpls.conf.<if>.input=1
+- D. net.core.rmem_max

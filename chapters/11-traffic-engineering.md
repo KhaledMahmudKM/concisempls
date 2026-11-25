@@ -527,3 +527,63 @@ The packets arrive at p3 carrying label 16002. The first segment, 16013, does no
 - An **SR policy** (head end, **color**, endpoint) has prioritised **candidate paths**, explicit or dynamic, and optionally a **binding SID**. The core keeps **no per-path state**.
 - **Automated steering** maps BGP routes to policies by **color** and **next hop**.
 - A **PCE** computes paths that need a global view and delivers them over **PCEP**. In FRR, **pathd** implements SR policies.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#chapter-11-traffic-engineering).
+
+**1. Why is traffic engineering needed?**
+
+- A. Shortest-path routing sends all traffic on the same paths, which can congest them while others sit idle
+- B. IGPs cannot route IPv6
+- C. Labels run out
+- D. BGP is too slow
+
+**2. How does RSVP-TE compute a path?**
+
+- A. With plain SPF
+- B. With BGP
+- C. With constrained SPF (CSPF) over the TE database
+- D. Randomly
+
+**3. Which RSVP-TE messages signal a path and reserve bandwidth?**
+
+- A. Hello and Keepalive
+- B. OPEN and UPDATE
+- C. SYN and ACK
+- D. PATH and RESV
+
+**4. What is the main scaling drawback of RSVP-TE?**
+
+- A. No bandwidth reservation
+- B. Per-tunnel state in every core router on the path
+- C. No fast reroute
+- D. It needs IPv6
+
+**5. Which three values identify an SR policy?**
+
+- A. Source, destination, port
+- B. RD, RT and label
+- C. Head end, color and endpoint
+- D. SRGB, index and TTL
+
+**6. What does automated steering use to map BGP routes onto SR policies?**
+
+- A. The route's color and next hop
+- B. The AS path
+- C. The MED
+- D. The community string only
+
+**7. When is a PCE useful?**
+
+- A. When a path needs a global view of the network, delivered to head ends over PCEP
+- B. For every path
+- C. Only for LDP
+- D. Only for L2VPNs
+
+**8. Which FRR daemon implements SR policies?**
+
+- A. ldpd
+- B. bgpd
+- C. pathd
+- D. zebra

@@ -434,3 +434,63 @@ The route from pe1 to pe2 now goes through p3 (pe1, p3, pe2: cost 35), and the l
 - Mappings flow **upstream** from the egress; each router chooses its own label. The egress advertises **implicit null** for PHP.
 - Typical behaviour: **downstream unsolicited**, **liberal retention**; restrict allocation to **host routes** to save state.
 - Use **LDP-IGP synchronisation** so links carry traffic only once they can carry labels.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#chapter-4-ldp).
+
+**1. What does LDP assign labels to?**
+
+- A. BGP routes
+- B. Each IGP prefix, on each router
+- C. Each VPN customer
+- D. Each interface
+
+**2. Which transport does LDP discovery use?**
+
+- A. TCP 179
+- B. UDP 520
+- C. UDP 646 Hellos
+- D. TCP 22
+
+**3. Between which addresses are LDP sessions usually built?**
+
+- A. Loopbacks
+- B. Interface addresses
+- C. Management addresses
+- D. Multicast addresses
+
+**4. In which direction do label mappings flow?**
+
+- A. Upstream, from the egress toward the ingress
+- B. Downstream, from ingress to egress
+- C. Only between PEs
+- D. Randomly
+
+**5. What is the typical LDP behaviour in modern networks?**
+
+- A. Downstream on demand with conservative retention
+- B. Upstream on demand
+- C. Downstream unsolicited with liberal retention
+- D. No retention
+
+**6. How can operators reduce LDP state?**
+
+- A. Disable the IGP
+- B. Restrict label allocation to host routes, such as loopbacks
+- C. Use more labels
+- D. Run LDP on CE routers
+
+**7. What problem does LDP-IGP synchronisation solve?**
+
+- A. Slow BGP
+- B. MTU mismatches
+- C. Duplicate router IDs
+- D. A link carrying IGP traffic before LDP has labels for it, dropping labelled traffic
+
+**8. What does LDP session protection keep alive when a direct link fails?**
+
+- A. The IGP adjacency
+- B. The LDP session, over another path, so labels are ready when the link returns
+- C. The BGP session
+- D. The VPN labels

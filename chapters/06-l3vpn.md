@@ -542,3 +542,63 @@ Change BLUE's RD on pe1 to be the same as RED's (`rd vpn export 10.0.0.1:10` und
 - PEs exchange **VPNv4** routes over MP-BGP. The **RD** makes overlapping prefixes unique; the **RT** decides which VRFs import a route.
 - Traffic carries **two labels**: a **transport** label to the egress PE, and a **VPN** label that selects the VRF there.
 - P routers know nothing about VPNs. In FRR, `label vpn export auto`, `rd vpn export`, `rt vpn`, `export vpn` and `import vpn` configure a VRF for L3VPN.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#chapter-6-bgpmpls-layer-3-vpns).
+
+**1. What keeps each customer's routes in a separate table on a PE?**
+
+- A. A VLAN
+- B. A route reflector
+- C. An LSP
+- D. A VRF
+
+**2. What does the route distinguisher do?**
+
+- A. Decides which VRFs import a route
+- B. Makes overlapping customer prefixes unique in BGP
+- C. Encrypts the route
+- D. Sets the BGP next hop
+
+**3. What does the route target do?**
+
+- A. Makes prefixes unique
+- B. Selects the transport LSP
+- C. Sets the MTU
+- D. Decides which VRFs import a route
+
+**4. Which address family carries VPNv4 routes?**
+
+- A. AFI 1, SAFI 1
+- B. AFI 1, SAFI 128
+- C. AFI 2, SAFI 1
+- D. AFI 25, SAFI 70
+
+**5. How many labels does L3VPN traffic carry across the core?**
+
+- A. One
+- B. Three
+- C. Two: a transport label and a VPN label
+- D. None
+
+**6. What does the VPN label tell the egress PE?**
+
+- A. The path through the core
+- B. The packet's QoS
+- C. The ingress PE
+- D. Which VRF, and so which customer, the packet belongs to
+
+**7. What do P routers know about VPNs?**
+
+- A. All VPN routes
+- B. Nothing: they just switch on the transport label
+- C. Only the RDs
+- D. Only the RTs
+
+**8. Which RFC defines BGP/MPLS IP VPNs?**
+
+- A. RFC 4364
+- B. RFC 3031
+- C. RFC 5036
+- D. RFC 8402

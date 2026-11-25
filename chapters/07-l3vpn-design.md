@@ -383,3 +383,63 @@ BLUE on pe2 now has two candidate paths for `192.168.1.0/24`: its own site behin
 - **eBGP** is the usual PE-CE protocol; **AS override**, **allowas-in**, and **Site of Origin** handle sites that share an ASN.
 - **Internet access** is provided through a hub, a separate connection, or route leaking.
 - **Inter-AS options A, B and C** join VPNs across providers, trading simplicity for scale.
+
+## Check your understanding
+
+Choose the best answer for each question, then check your answers in [Answers to Chapter Questions](answers.md#chapter-7-l3vpn-design).
+
+**1. What do route reflectors remove the need for?**
+
+- A. A full mesh of iBGP sessions between PEs
+- B. The IGP
+- C. VRFs
+- D. LDP
+
+**2. What does route target constraint do?**
+
+- A. Limits the number of VRFs
+- B. Blocks all RTs
+- C. Sends each PE only the VPN routes it imports
+- D. Encrypts RTs
+
+**3. In a hub-and-spoke VPN, how do spoke sites reach each other?**
+
+- A. Directly
+- B. They cannot communicate
+- C. Through the Internet
+- D. Through the hub, because spokes import only the hub's routes
+
+**4. What must be true of prefixes in a shared services VRF?**
+
+- A. They must be private
+- B. They must not overlap with the customers' prefixes that import them
+- C. They must be IPv6
+- D. They must use the same RD
+
+**5. Which is the usual PE-CE routing protocol?**
+
+- A. RIP
+- B. LDP
+- C. eBGP
+- D. RSVP-TE
+
+**6. All sites of a customer use the same ASN, and site B rejects site A's routes. Which PE feature fixes this?**
+
+- A. AS override
+- B. Route reflection
+- C. Next-hop-self
+- D. RT constraint
+
+**7. Which inter-AS option connects the ASBRs with one subinterface per VPN, treating each other as CEs?**
+
+- A. Option A
+- B. Option B
+- C. Option C
+- D. Option D
+
+**8. Which inter-AS option scales best, by exchanging only PE loopbacks with labels?**
+
+- A. Option A
+- B. Option B
+- C. Option C
+- D. Back-to-back VRFs
